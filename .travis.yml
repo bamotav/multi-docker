@@ -19,7 +19,21 @@ after_success:
     - docker push bamotav/multi-client 
     - docker push bamotav/multi-nginx 
     - docker push bamotav/multi-server 
-    - docker push bamotav/multi-worker 
+    - docker push bamotav/multi-worker
+    
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "multi-docker"
+    env: "MultiDocker-env"
+    #bucket_name: "elasticbeanstalk-us-east-1-114716128534"
+    bucket_name: "multi-docker-app"
+    bucket_path: "docker-multi"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
 
 
 
