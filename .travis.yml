@@ -22,7 +22,7 @@ after_success:
     - docker push bamotav/multi-worker
     
 deploy:
-    edge: true
+    #edge: true
     provider: elasticbeanstalk
     region: "us-east-1"
     app: "multi-docker"
